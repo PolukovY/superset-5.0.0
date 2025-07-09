@@ -26,6 +26,7 @@ import sys
 
 from celery.schedules import crontab
 from flask_caching.backends.filesystemcache import FileSystemCache
+from flask_appbuilder.const import AUTH_OAUTH
 
 logger = logging.getLogger()
 
@@ -71,6 +72,33 @@ CACHE_CONFIG = {
     "CACHE_REDIS_DB": REDIS_RESULTS_DB,
 }
 DATA_CACHE_CONFIG = CACHE_CONFIG
+
+OAUTH_PROVIDERS = [
+    {
+        'name': 'google',
+        'icon': 'fa-google',
+        'token_key': 'access_token',
+        'remote_app': {
+            'client_id': os.getenv("GOOGLE_OAUTH_CLIENT_ID"),
+            'client_secret': os.getenv("GOOGLE_OAUTH_CLIENT_SECRET"),
+            'api_base_url': 'https://www.googleapis.com/oauth2/v2/',
+            'client_kwargs': {
+                'scope': 'email profile',
+            },
+            'request_token_url': None,
+            'access_token_url': 'https://oauth2.googleapis.com/token',
+            'authorize_url': 'https://accounts.google.com/o/oauth2/auth',
+        },
+    }
+]
+
+ENABLE_PROXY_FIX = True
+PREFERRED_URL_SCHEME = 'https'
+AUTH_TYPE = AUTH_OAUTH
+RECAPTCHA_PUBLIC_KEY = ""
+RECAPTCHA_PRIVATE_KEY = ""
+AUTH_USER_REGISTRATION = True
+AUTH_USER_REGISTRATION_ROLE = "Public"
 
 
 class CeleryConfig:
