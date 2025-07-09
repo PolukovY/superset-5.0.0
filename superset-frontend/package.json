@@ -319,7 +319,7 @@
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-prefer-function-component": "^3.3.0",
-    "eslint-plugin-storybook": "^0.8.0",
+    "eslint-plugin-storybook": "^9.0.16",
     "eslint-plugin-testing-library": "^6.4.0",
     "eslint-plugin-theme-colors": "file:tools/eslint-plugin-theme-colors",
     "eslint-plugin-translation-vars": "file:tools/eslint-plugin-translation-vars",
