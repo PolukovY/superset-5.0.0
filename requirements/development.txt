@@ -2,6 +2,7 @@
 #    uv pip compile requirements/development.in -c requirements/base.txt -o requirements/development.txt
 -e .
     # via -r requirements/development.in
+authlib==1.6.0
 alembic==1.14.0
     # via
     #   -c requirements/base.txt
